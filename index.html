@@ -48,20 +48,132 @@ header {
     display: block;
 }
 
-@media (max-width: 768px) {
-    .logo img {
-        width: 48px;
-        height: 48px;
-    }
+/* PRODUCT CATALOG */
+
+.category-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
 }
 
-nav a {
-    text-decoration: none;
+.category-btn {
+    padding: 12px 22px;
+    border: 1px solid #b4a18a;
+    background: transparent;
     color: #333;
-    margin-left: 25px;
+    cursor: pointer;
+    transition: .3s;
+    border-radius: 3px;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background: #333a30;
+    color: white;
+}
+
+.product {
+    cursor: pointer;
+    transition: .3s;
+}
+
+.product:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.10);
+}
+
+.product-info .detail-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #9b8265;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* PRODUCT DETAIL MODAL */
+
+.product-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.75);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.product-modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: #f7f5ef;
+    max-width: 850px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    object-fit: cover;
+}
+
+.modal-info {
+    padding: 40px 30px;
+}
+
+.modal-info h2 {
+    margin-bottom: 15px;
+}
+
+.modal-info p {
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.modal-info ul {
+    list-style: none;
+    line-height: 2;
     font-size: 14px;
 }
 
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    border: none;
+    background: white;
+    font-size: 25px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    z-index: 2;
+}
+
+@media(max-width:768px) {
+    .modal-content {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content img {
+        min-height: 250px;
+        height: 250px;
+    }
+
+    .modal-info {
+        padding: 25px;
+    }
+}
 .hero {
     min-height: 580px;
     background:
@@ -278,11 +390,197 @@ footer {
     </p>
 </section>
 
-<section id="products">
+<<section id="products">
+
     <div class="section-title">
         <h2>Our Products</h2>
         <p>Discover Our Premium Terrazzo Collection</p>
     </div>
+
+    <!-- CATEGORY FILTER -->
+
+    <div class="category-filter">
+
+        <button class="category-btn active"
+        onclick="filterProducts('all',this)">
+            All Products
+        </button>
+
+        <button class="category-btn"
+        onclick="filterProducts('bathtub',this)">
+            Bathtub
+        </button>
+
+        <button class="category-btn"
+        onclick="filterProducts('bak-mandi',this)">
+            Bak Mandi
+        </button>
+
+        <button class="category-btn"
+        onclick="filterProducts('pot',this)">
+            Pot Teraso
+        </button>
+
+        <button class="category-btn"
+        onclick="filterProducts('air-mancur',this)">
+            Air Mancur
+        </button>
+
+        <button class="category-btn"
+        onclick="filterProducts('bangku',this)">
+            Bangku Taman
+        </button>
+
+        <button class="category-btn"
+        onclick="filterProducts('custom',this)">
+            Custom Terrazzo
+        </button>
+
+    </div>
+
+    <!-- PRODUCT LIST -->
+
+    <div class="products">
+
+        <!-- BATHTUB 1 -->
+
+        <div class="product"
+        data-category="bathtub"
+        onclick="showProduct(0)">
+
+            <img src="./Terrazzo Spa Patio with Fountain and Greenery.png"
+            alt="Bathtub Minimalist Terrazzo">
+
+            <div class="product-info">
+                <h3>Bathtub Minimalist</h3>
+                <p>Desain minimalis dengan bentuk geometris elegan.</p>
+                <span class="detail-link">View Details →</span>
+            </div>
+
+        </div>
+
+        <!-- BATHTUB 2 -->
+
+        <div class="product"
+        data-category="bathtub"
+        onclick="showProduct(1)">
+
+            <img src="./Terrazzo Spa Patio with Fountain and Greenery.png"
+            alt="Bathtub Freestanding">
+
+            <div class="product-info">
+                <h3>Bathtub Freestanding</h3>
+                <p>Desain berdiri bebas untuk kamar mandi premium.</p>
+                <span class="detail-link">View Details →</span>
+            </div>
+
+        </div>
+
+        <!-- BATHTUB 3 -->
+
+        <div class="product"
+        data-category="bathtub"
+        onclick="showProduct(2)">
+
+            <img src="./Terrazzo Spa Patio with Fountain and Greenery.png"
+            alt="Bathtub Square">
+
+            <div class="product-info">
+                <h3>Bathtub Square</h3>
+                <p>Desain tegas dengan bentuk kotak modern.</p>
+                <span class="detail-link">View Details →</span>
+            </div>
+
+        </div>
+
+        <!-- BAK MANDI -->
+
+        <div class="product"
+        data-category="bak-mandi"
+        onclick="showProduct(3)">
+
+            <img src="./Terrazzo Spa Patio with Fountain and Greenery.png"
+            alt="Bak Mandi Terrazzo">
+
+            <div class="product-info">
+                <h3>Bak Mandi Terrazzo</h3>
+                <p>Bak mandi teraso dengan desain elegan.</p>
+                <span class="detail-link">View Details →</span>
+            </div>
+
+        </div>
+
+        <!-- POT -->
+
+        <div class="product"
+        data-category="pot"
+        onclick="showProduct(4)">
+
+            <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=85"
+            alt="Pot Terrazzo">
+
+            <div class="product-info">
+                <h3>Pot Terrazzo</h3>
+                <p>Elemen dekoratif untuk interior dan landscape.</p>
+                <span class="detail-link">View Details →</span>
+            </div>
+
+        </div>
+
+        <!-- AIR MANCUR -->
+
+        <div class="product"
+        data-category="air-mancur"
+        onclick="showProduct(5)">
+
+            <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=85"
+            alt="Air Mancur Terrazzo">
+
+            <div class="product-info">
+                <h3>Air Mancur Terrazzo</h3>
+                <p>Elemen dekorasi taman yang menenangkan.</p>
+                <span class="detail-link">View Details →</span>
+            </div>
+
+        </div>
+
+        <!-- BANGKU -->
+
+        <div class="product"
+        data-category="bangku"
+        onclick="showProduct(6)">
+
+            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=85"
+            alt="Bangku Terrazzo">
+
+            <div class="product-info">
+                <h3>Bangku Taman</h3>
+                <p>Perpaduan fungsi dan estetika outdoor.</p>
+                <span class="detail-link">View Details →</span>
+            </div>
+
+        </div>
+
+        <!-- CUSTOM -->
+
+        <div class="product"
+        data-category="custom"
+        onclick="showProduct(7)">
+
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85"
+            alt="Custom Terrazzo">
+
+            <div class="product-info">
+                <h3>Custom Terrazzo</h3>
+                <p>Produk teraso sesuai kebutuhan proyek.</p>
+                <span class="detail-link">View Details →</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>>
 
     <div class="products">
 
@@ -374,6 +672,214 @@ footer {
    class="whatsapp">
    WhatsApp
 </a>
+    <!-- PRODUCT DETAIL MODAL -->
+
+<div class="product-modal" id="productModal">
+
+    <div class="modal-content">
+
+        <button class="modal-close"
+        onclick="closeProduct()">×</button>
+
+        <img id="modalImage" src="" alt="Product">
+
+        <div class="modal-info">
+
+            <h2 id="modalName"></h2>
+
+            <p id="modalDescription"></p>
+
+            <h3>Product Specifications</h3>
+
+            <ul>
+                <li id="modalMaterial"></li>
+                <li id="modalColor"></li>
+                <li id="modalSize"></li>
+                <li id="modalFinish"></li>
+            </ul>
+
+            <br>
+
+            <a id="modalWhatsapp"
+            href="#"
+            target="_blank"
+            class="button">
+                Ask via WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+// FILTER CATEGORY
+
+function filterProducts(category, button) {
+
+    const products = document.querySelectorAll('.product');
+
+    document.querySelectorAll('.category-btn')
+    .forEach(btn => btn.classList.remove('active'));
+
+    button.classList.add('active');
+
+    products.forEach(product => {
+
+        if (category === 'all' ||
+            product.dataset.category === category) {
+
+            product.style.display = 'block';
+
+        } else {
+
+            product.style.display = 'none';
+
+        }
+
+    });
+
+}
+
+
+// PRODUCT DATABASE
+
+const productData = [
+
+    {
+        name: "Bathtub Minimalist",
+        image: "./Terrazzo Spa Patio with Fountain and Greenery.png",
+        description: "Bathtub teraso dengan desain minimalis dan garis geometris yang memberikan kesan elegan untuk kamar mandi modern.",
+        material: "Terrazzo",
+        color: "White Terrazzo",
+        size: "170 × 80 × 60 cm (contoh)",
+        finish: "Polished Finish"
+    },
+
+    {
+        name: "Bathtub Freestanding",
+        image: "./Terrazzo Spa Patio with Fountain and Greenery.png",
+        description: "Bathtub freestanding dengan desain modern yang menjadi focal point kamar mandi premium.",
+        material: "Terrazzo",
+        color: "White Terrazzo",
+        size: "160 × 75 × 60 cm (contoh)",
+        finish: "Polished Finish"
+    },
+
+    {
+        name: "Bathtub Square",
+        image: "./Terrazzo Spa Patio with Fountain and Greenery.png",
+        description: "Bathtub dengan desain geometris kotak untuk menghadirkan karakter modern dan minimalis.",
+        material: "Terrazzo",
+        color: "White Terrazzo",
+        size: "150 × 80 × 60 cm (contoh)",
+        finish: "Polished Finish"
+    },
+
+    {
+        name: "Bak Mandi Terrazzo",
+        image: "./Terrazzo Spa Patio with Fountain and Greenery.png",
+        description: "Bak mandi teraso dengan tampilan natural dan elegan.",
+        material: "Terrazzo",
+        color: "Custom Color",
+        size: "Custom Size",
+        finish: "Polished Finish"
+    },
+
+    {
+        name: "Pot Terrazzo",
+        image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=85",
+        description: "Pot teraso untuk mempercantik area interior maupun outdoor.",
+        material: "Terrazzo",
+        color: "Custom Color",
+        size: "Custom Size",
+        finish: "Polished Finish"
+    },
+
+    {
+        name: "Air Mancur Terrazzo",
+        image: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=85",
+        description: "Air mancur teraso sebagai elemen dekoratif untuk taman dan area komersial.",
+        material: "Terrazzo",
+        color: "Custom Color",
+        size: "Custom Size",
+        finish: "Polished Finish"
+    },
+
+    {
+        name: "Bangku Taman",
+        image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=85",
+        description: "Bangku teraso dengan konstruksi kokoh untuk kebutuhan taman dan landscape.",
+        material: "Terrazzo",
+        color: "Custom Color",
+        size: "Custom Size",
+        finish: "Polished Finish"
+    },
+
+    {
+        name: "Custom Terrazzo",
+        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85",
+        description: "Layanan pembuatan produk teraso sesuai kebutuhan desain dan proyek.",
+        material: "Terrazzo",
+        color: "Custom Color",
+        size: "By Request",
+        finish: "Custom Finish"
+    }
+
+];
+
+
+// SHOW PRODUCT DETAIL
+
+function showProduct(index) {
+
+    const product = productData[index];
+
+    document.getElementById("modalImage").src = product.image;
+    document.getElementById("modalName").textContent = product.name;
+    document.getElementById("modalDescription").textContent = product.description;
+    document.getElementById("modalMaterial").textContent = "Material: " + product.material;
+    document.getElementById("modalColor").textContent = "Color: " + product.color;
+    document.getElementById("modalSize").textContent = "Size: " + product.size;
+    document.getElementById("modalFinish").textContent = "Finishing: " + product.finish;
+
+    // GANTI NOMOR INI DENGAN NOMOR WHATSAPP BISNIS
+
+    const whatsappNumber = "62XXXXXXXXXX";
+
+    const message = encodeURIComponent(
+        "Halo TERAZORA, saya tertarik dengan produk " + product.name
+    );
+
+    document.getElementById("modalWhatsapp").href =
+        "https://wa.me/" + whatsappNumber + "?text=" + message;
+
+    document.getElementById("productModal").classList.add("show");
+
+}
+
+
+// CLOSE MODAL
+
+function closeProduct() {
+
+    document.getElementById("productModal")
+    .classList.remove("show");
+
+}
+
+document.getElementById("productModal")
+.addEventListener("click", function(event) {
+
+    if (event.target === this) {
+        closeProduct();
+    }
+
+});
+
+</script>
 
 </body>
 </html>
