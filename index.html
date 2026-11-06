@@ -8,138 +8,6 @@
 
 <meta name="description" content="TERAZORA menyediakan produk terrazzo premium seperti bathtub, pot, bangku taman, air mancur dan custom terrazzo.">
 
-    /* PRODUCT CATALOG */
-
-.product {
-    cursor: pointer;
-    transition: .3s;
-    border-radius: 5px;
-}
-
-.product:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 12px 30px rgba(0,0,0,.12);
-}
-
-.product-info .detail-btn {
-    display: inline-block;
-    margin-top: 15px;
-    color: #a18c72;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-/* PRODUCT MODAL */
-
-.product-modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    inset: 0;
-    background: rgba(0,0,0,.7);
-    overflow-y: auto;
-    padding: 40px 15px;
-}
-
-.modal-content {
-    background: #f7f5ef;
-    max-width: 1100px;
-    margin: auto;
-    padding: 35px;
-    border-radius: 8px;
-    position: relative;
-}
-
-.modal-close {
-    position: absolute;
-    right: 25px;
-    top: 15px;
-    font-size: 30px;
-    cursor: pointer;
-    border: none;
-    background: none;
-}
-
-.modal-title {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.modal-title h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-
-.modal-title p {
-    color: #777;
-}
-
-.modal-products {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.modal-product {
-    background: white;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.modal-product img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-}
-
-.modal-info {
-    padding: 20px;
-}
-
-.modal-info h3 {
-    margin-bottom: 12px;
-}
-
-.modal-info p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.product-size {
-    background: #f1eee7;
-    padding: 12px;
-    font-size: 13px;
-    margin: 12px 0;
-    line-height: 1.7;
-}
-
-.wa-button {
-    display: block;
-    text-align: center;
-    padding: 12px;
-    background: #25d366;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-@media(max-width:768px) {
-    .modal-products {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-content {
-        padding: 25px 15px;
-    }
-
-    .modal-title h2 {
-        font-size: 23px;
-    }
-}
 <style>
 * {
     margin: 0;
@@ -152,6 +20,8 @@ body {
     background: #f7f5ef;
     color: #252820;
 }
+
+/* HEADER */
 
 header {
     display: flex;
@@ -167,12 +37,6 @@ header {
     text-decoration: none;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
 .logo img {
     width: 60px;
     height: 60px;
@@ -180,152 +44,42 @@ header {
     display: block;
 }
 
-/* PRODUCT CATALOG */
-
-.category-filter {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 40px;
-}
-
-.category-btn {
-    padding: 12px 22px;
-    border: 1px solid #b4a18a;
-    background: transparent;
+nav a {
+    margin: 0 12px;
     color: #333;
-    cursor: pointer;
-    transition: .3s;
-    border-radius: 3px;
-}
-
-.category-btn:hover,
-.category-btn.active {
-    background: #333a30;
-    color: white;
-}
-
-.product {
-    cursor: pointer;
-    transition: .3s;
-}
-
-.product:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,.10);
-}
-
-.product-info .detail-link {
-    display: inline-block;
-    margin-top: 15px;
-    color: #9b8265;
-    font-size: 13px;
+    text-decoration: none;
+    font-size: 14px;
     font-weight: bold;
 }
 
-/* PRODUCT DETAIL MODAL */
+/* HERO */
 
-.product-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.75);
-    z-index: 999;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.product-modal.show {
-    display: flex;
-}
-
-.modal-content {
-    background: #f7f5ef;
-    max-width: 850px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-}
-
-.modal-content img {
-    width: 100%;
-    height: 100%;
-    min-height: 400px;
-    object-fit: cover;
-}
-
-.modal-info {
-    padding: 40px 30px;
-}
-
-.modal-info h2 {
-    margin-bottom: 15px;
-}
-
-.modal-info p {
-    line-height: 1.8;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-.modal-info ul {
-    list-style: none;
-    line-height: 2;
-    font-size: 14px;
-}
-
-.modal-close {
-    position: absolute;
-    top: 12px;
-    right: 15px;
-    border: none;
-    background: white;
-    font-size: 25px;
-    cursor: pointer;
-    width: 35px;
-    height: 35px;
-    z-index: 2;
-}
-
-@media(max-width:768px) {
-    .modal-content {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-content img {
-        min-height: 250px;
-        height: 250px;
-    }
-
-    .modal-info {
-        padding: 25px;
-    }
-}
 .hero {
     min-height: 580px;
     background:
-    linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.05)),
-    url('./Terrazzo Spa Patio with Fountain and Greenery.png')
-    center/cover;
+        linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.05)),
+        url('./Terrazzo Spa Patio with Fountain and Greenery.png')
+        center/cover;
     display: flex;
     align-items: center;
     padding: 8%;
     color: white;
 }
 
-.hero-content {
-    max-width: 600px;
-}
+.hero-content { max-width: 600px; }
 
 .hero h1 {
     font-size: 55px;
     letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 2px;
     margin-bottom: 20px;
+    opacity: .92;
 }
 
 .hero p {
@@ -343,23 +97,15 @@ header {
     border-radius: 3px;
 }
 
-section {
-    padding: 80px 8%;
-}
+/* SECTION UMUM */
 
-.section-title {
-    text-align: center;
-    margin-bottom: 45px;
-}
+section { padding: 80px 8%; }
 
-.section-title h2 {
-    font-size: 34px;
-    margin-bottom: 12px;
-}
+.section-title { text-align: center; margin-bottom: 45px; }
+.section-title h2 { font-size: 34px; margin-bottom: 12px; }
+.section-title p { color: #777; }
 
-.section-title p {
-    color: #777;
-}
+/* PRODUCT CATALOG */
 
 .products {
     display: grid;
@@ -370,6 +116,14 @@ section {
 .product {
     background: white;
     overflow: hidden;
+    cursor: pointer;
+    transition: .3s ease;
+    border-radius: 5px;
+}
+
+.product:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.12);
 }
 
 .product img {
@@ -378,13 +132,9 @@ section {
     object-fit: cover;
 }
 
-.product-info {
-    padding: 22px;
-}
+.product-info { padding: 22px; }
 
-.product-info h3 {
-    margin-bottom: 10px;
-}
+.product-info h3 { margin-bottom: 10px; }
 
 .product-info p {
     color: #777;
@@ -392,10 +142,19 @@ section {
     font-size: 14px;
 }
 
-.about {
-    background: #eae5dc;
-    text-align: center;
+.product-info button {
+    margin-top: 15px;
+    padding: 11px 20px;
+    background: #a9957c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
 }
+
+/* ABOUT */
+
+.about { background: #eae5dc; text-align: center; }
 
 .about p {
     max-width: 750px;
@@ -403,6 +162,8 @@ section {
     line-height: 1.9;
     color: #555;
 }
+
+/* GALLERY */
 
 .gallery {
     display: grid;
@@ -416,15 +177,15 @@ section {
     object-fit: cover;
 }
 
+/* CONTACT & FOOTER */
+
 .contact {
     background: #333a30;
     color: white;
     text-align: center;
 }
 
-.contact p {
-    margin: 20px 0;
-}
+.contact p { margin: 20px 0; }
 
 footer {
     background: #20251f;
@@ -447,53 +208,7 @@ footer {
     z-index: 10;
 }
 
-@media(max-width:768px) {
-    header {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    nav a {
-        margin: 0 6px;
-        font-size: 12px;
-    }
-
-    .hero h1 {
-        font-size: 36px;
-    }
-
-    .products,
-    .gallery {
-        grid-template-columns: 1fr;
-    }
-
-    section {
-        padding: 55px 6%;
-    }
-}
-    /* INTERACTIVE PRODUCT CATALOG */
-
-.product {
-    cursor: pointer;
-    transition: .3s ease;
-    border-radius: 5px;
-}
-
-.product:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 12px 30px rgba(0,0,0,.12);
-}
-
-.product-info button {
-    margin-top: 15px;
-    padding: 11px 20px;
-    background: #a9957c;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-/* PRODUCT DETAIL MODAL */
+/* PRODUCT CATALOG MODAL */
 
 .catalog-modal {
     display: none;
@@ -544,9 +259,7 @@ footer {
     object-fit: cover;
 }
 
-.catalog-item h3 {
-    padding: 15px 15px 5px;
-}
+.catalog-item h3 { padding: 15px 15px 5px; }
 
 .catalog-item p {
     padding: 5px 15px;
@@ -562,11 +275,32 @@ footer {
     background: #a9957c;
     color: white;
     text-decoration: none;
+    border-radius: 3px;
 }
 
 @media(max-width:768px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav a {
+        margin: 0 6px;
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .products,
+    .gallery,
     .catalog-grid {
         grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 55px 6%;
     }
 
     .catalog-content {
@@ -580,8 +314,8 @@ footer {
 
 <header>
     <a href="#home" class="logo">
-    <img src="./LOGOS.png" alt="TERAZORA Logo">
-</a>
+        <img src="./LOGOS.png" alt="TERAZORA Logo">
+    </a>
 
     <nav>
         <a href="#home">Home</a>
@@ -624,9 +358,7 @@ footer {
     </p>
 </section>
 
-<<section id="products">
-
-    <section id="products">
+<section id="products">
 
     <div class="section-title">
         <h2>Our Products</h2>
@@ -638,7 +370,7 @@ footer {
         <div class="product" onclick="openCatalog('bathtub')">
             <img src="images/bathtub.jpg" alt="Bathtub Teraso">
             <div class="product-info">
-                <h3>Bathtub & Bak Mandi</h3>
+                <h3>Bathtub &amp; Bak Mandi</h3>
                 <p>Koleksi bathtub premium untuk kamar mandi elegan.</p>
                 <button>View Collection →</button>
             </div>
@@ -683,61 +415,6 @@ footer {
     </div>
 </section>
 
-</section>>
-
-    <div class="products">
-
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=85">
-            <div class="product-info">
-                <h3>Bathtub & Bak Mandi</h3>
-                <p>Hadirkan pengalaman mandi yang elegan dan nyaman.</p>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=85">
-            <div class="product-info">
-                <h3>Pot Terrazzo</h3>
-                <p>Sentuhan natural untuk mempercantik interior dan taman.</p>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=85">
-            <div class="product-info">
-                <h3>Bangku Taman</h3>
-                <p>Perpaduan estetika dan fungsi untuk ruang outdoor.</p>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=85">
-            <div class="product-info">
-                <h3>Air Mancur</h3>
-                <p>Elemen dekoratif untuk suasana taman yang menenangkan.</p>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=85">
-            <div class="product-info">
-                <h3>Landscape Products</h3>
-                <p>Solusi material untuk kebutuhan desain landscape.</p>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85">
-            <div class="product-info">
-                <h3>Custom Terrazzo</h3>
-                <p>Produk teraso yang dapat disesuaikan dengan kebutuhan proyek.</p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
 <section id="projects">
     <div class="section-title">
         <h2>Our Inspiration</h2>
@@ -745,9 +422,9 @@ footer {
     </div>
 
     <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=85">
-        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=85">
-        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=85">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=85" alt="Inspirasi terrazzo 1">
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=85" alt="Inspirasi terrazzo 2">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=85" alt="Inspirasi terrazzo 3">
     </div>
 </section>
 
@@ -759,8 +436,7 @@ footer {
         untuk hunian maupun proyek Anda bersama TERAZORA.
     </p>
 
-    <a href="https://wa.me/62XXXXXXXXXX"
-       class="button">
+    <a href="#" data-wa class="button">
        Contact Us via WhatsApp
     </a>
 </section>
@@ -771,219 +447,11 @@ footer {
     Terrazzo Design Solution
 </footer>
 
-<a href="https://wa.me/62XXXXXXXXXX"
-   class="whatsapp">
+<a href="#" data-wa class="whatsapp">
    WhatsApp
 </a>
-    <!-- PRODUCT DETAIL MODAL -->
 
-<div class="product-modal" id="productModal">
-
-    <div class="modal-content">
-
-        <button class="modal-close"
-        onclick="closeProduct()">×</button>
-
-        <img id="modalImage" src="" alt="Product">
-
-        <div class="modal-info">
-
-            <h2 id="modalName"></h2>
-
-            <p id="modalDescription"></p>
-
-            <h3>Product Specifications</h3>
-
-            <ul>
-                <li id="modalMaterial"></li>
-                <li id="modalColor"></li>
-                <li id="modalSize"></li>
-                <li id="modalFinish"></li>
-            </ul>
-
-            <br>
-
-            <a id="modalWhatsapp"
-            href="#"
-            target="_blank"
-            class="button">
-                Ask via WhatsApp
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
-
-<script>
-
-// FILTER CATEGORY
-
-function filterProducts(category, button) {
-
-    const products = document.querySelectorAll('.product');
-
-    document.querySelectorAll('.category-btn')
-    .forEach(btn => btn.classList.remove('active'));
-
-    button.classList.add('active');
-
-    products.forEach(product => {
-
-        if (category === 'all' ||
-            product.dataset.category === category) {
-
-            product.style.display = 'block';
-
-        } else {
-
-            product.style.display = 'none';
-
-        }
-
-    });
-
-}
-
-
-// PRODUCT DATABASE
-
-const productData = [
-
-    {
-        name: "Bathtub Minimalist",
-        image: "./Terrazzo Spa Patio with Fountain and Greenery.png",
-        description: "Bathtub teraso dengan desain minimalis dan garis geometris yang memberikan kesan elegan untuk kamar mandi modern.",
-        material: "Terrazzo",
-        color: "White Terrazzo",
-        size: "170 × 80 × 60 cm (contoh)",
-        finish: "Polished Finish"
-    },
-
-    {
-        name: "Bathtub Freestanding",
-        image: "./Terrazzo Spa Patio with Fountain and Greenery.png",
-        description: "Bathtub freestanding dengan desain modern yang menjadi focal point kamar mandi premium.",
-        material: "Terrazzo",
-        color: "White Terrazzo",
-        size: "160 × 75 × 60 cm (contoh)",
-        finish: "Polished Finish"
-    },
-
-    {
-        name: "Bathtub Square",
-        image: "./Terrazzo Spa Patio with Fountain and Greenery.png",
-        description: "Bathtub dengan desain geometris kotak untuk menghadirkan karakter modern dan minimalis.",
-        material: "Terrazzo",
-        color: "White Terrazzo",
-        size: "150 × 80 × 60 cm (contoh)",
-        finish: "Polished Finish"
-    },
-
-    {
-        name: "Bak Mandi Terrazzo",
-        image: "./Terrazzo Spa Patio with Fountain and Greenery.png",
-        description: "Bak mandi teraso dengan tampilan natural dan elegan.",
-        material: "Terrazzo",
-        color: "Custom Color",
-        size: "Custom Size",
-        finish: "Polished Finish"
-    },
-
-    {
-        name: "Pot Terrazzo",
-        image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=85",
-        description: "Pot teraso untuk mempercantik area interior maupun outdoor.",
-        material: "Terrazzo",
-        color: "Custom Color",
-        size: "Custom Size",
-        finish: "Polished Finish"
-    },
-
-    {
-        name: "Air Mancur Terrazzo",
-        image: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=85",
-        description: "Air mancur teraso sebagai elemen dekoratif untuk taman dan area komersial.",
-        material: "Terrazzo",
-        color: "Custom Color",
-        size: "Custom Size",
-        finish: "Polished Finish"
-    },
-
-    {
-        name: "Bangku Taman",
-        image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=85",
-        description: "Bangku teraso dengan konstruksi kokoh untuk kebutuhan taman dan landscape.",
-        material: "Terrazzo",
-        color: "Custom Color",
-        size: "Custom Size",
-        finish: "Polished Finish"
-    },
-
-    {
-        name: "Custom Terrazzo",
-        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85",
-        description: "Layanan pembuatan produk teraso sesuai kebutuhan desain dan proyek.",
-        material: "Terrazzo",
-        color: "Custom Color",
-        size: "By Request",
-        finish: "Custom Finish"
-    }
-
-];
-
-
-// SHOW PRODUCT DETAIL
-
-function showProduct(index) {
-
-    const product = productData[index];
-
-    document.getElementById("modalImage").src = product.image;
-    document.getElementById("modalName").textContent = product.name;
-    document.getElementById("modalDescription").textContent = product.description;
-    document.getElementById("modalMaterial").textContent = "Material: " + product.material;
-    document.getElementById("modalColor").textContent = "Color: " + product.color;
-    document.getElementById("modalSize").textContent = "Size: " + product.size;
-    document.getElementById("modalFinish").textContent = "Finishing: " + product.finish;
-
-    // GANTI NOMOR INI DENGAN NOMOR WHATSAPP BISNIS
-
-    const whatsappNumber = "62XXXXXXXXXX";
-
-    const message = encodeURIComponent(
-        "Halo TERAZORA, saya tertarik dengan produk " + product.name
-    );
-
-    document.getElementById("modalWhatsapp").href =
-        "https://wa.me/" + whatsappNumber + "?text=" + message;
-
-    document.getElementById("productModal").classList.add("show");
-
-}
-
-
-// CLOSE MODAL
-
-function closeProduct() {
-
-    document.getElementById("productModal")
-    .classList.remove("show");
-
-}
-
-document.getElementById("productModal")
-.addEventListener("click", function(event) {
-
-    if (event.target === this) {
-        closeProduct();
-    }
-
-});
-
-</script>
-    <!-- PRODUCT CATALOG MODAL -->
+<!-- PRODUCT CATALOG MODAL -->
 
 <div class="catalog-modal" id="catalogModal">
 
@@ -1007,6 +475,20 @@ document.getElementById("productModal")
 </div>
 
 <script>
+
+// ============================================================
+// GANTI ANGKA INI SEKALI SAJA dengan nomor WhatsApp bisnis Anda
+// (format internasional tanpa + dan tanpa 0 di depan)
+// ============================================================
+const WA_NUMBER = "62XXXXXXXXXX";
+
+// Semua tombol yang punya atribut data-wa otomatis diarahkan
+// ke nomor WhatsApp di atas.
+document.querySelectorAll("[data-wa]").forEach(a => {
+    a.href = "https://wa.me/" + WA_NUMBER;
+});
+
+// DATA KATALOG PRODUK
 
 const catalogData = {
 
@@ -1142,6 +624,8 @@ const catalogData = {
 
 };
 
+// BUKA / TUTUP MODAL KATALOG
+
 function openCatalog(category) {
 
     const data = catalogData[category];
@@ -1170,7 +654,7 @@ function openCatalog(category) {
 
                 <p>${item.description}</p>
 
-                <a href="https://wa.me/62XXXXXXXXXX?text=${encodeURIComponent(
+                <a href="https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
                     'Halo TERAZORA, saya tertarik dengan produk ' +
                     item.name + '. Mohon informasi lebih lanjut.'
                 )}" target="_blank">
@@ -1198,6 +682,8 @@ function closeCatalog() {
     document.body.style.overflow = "auto";
 
 }
+
+// Klik area gelap di luar modal = tutup
 
 window.onclick = function(event) {
 
