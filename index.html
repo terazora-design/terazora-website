@@ -35,11 +35,24 @@ header {
     text-decoration: none;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .logo img {
-    height: 45px;
-    width: auto;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
     display: block;
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        width: 48px;
+        height: 48px;
+    }
 }
 
 nav a {
