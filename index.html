@@ -8,6 +8,138 @@
 
 <meta name="description" content="TERAZORA menyediakan produk terrazzo premium seperti bathtub, pot, bangku taman, air mancur dan custom terrazzo.">
 
+    /* PRODUCT CATALOG */
+
+.product {
+    cursor: pointer;
+    transition: .3s;
+    border-radius: 5px;
+}
+
+.product:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.12);
+}
+
+.product-info .detail-btn {
+    display: inline-block;
+    margin-top: 15px;
+    color: #a18c72;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* PRODUCT MODAL */
+
+.product-modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    overflow-y: auto;
+    padding: 40px 15px;
+}
+
+.modal-content {
+    background: #f7f5ef;
+    max-width: 1100px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.modal-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.modal-title h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.modal-title p {
+    color: #777;
+}
+
+.modal-products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.modal-product {
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.modal-product img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.modal-info {
+    padding: 20px;
+}
+
+.modal-info h3 {
+    margin-bottom: 12px;
+}
+
+.modal-info p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.product-size {
+    background: #f1eee7;
+    padding: 12px;
+    font-size: 13px;
+    margin: 12px 0;
+    line-height: 1.7;
+}
+
+.wa-button {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background: #25d366;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+@media(max-width:768px) {
+    .modal-products {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        padding: 25px 15px;
+    }
+
+    .modal-title h2 {
+        font-size: 23px;
+    }
+}
 <style>
 * {
     margin: 0;
@@ -339,6 +471,108 @@ footer {
         padding: 55px 6%;
     }
 }
+    /* INTERACTIVE PRODUCT CATALOG */
+
+.product {
+    cursor: pointer;
+    transition: .3s ease;
+    border-radius: 5px;
+}
+
+.product:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.12);
+}
+
+.product-info button {
+    margin-top: 15px;
+    padding: 11px 20px;
+    background: #a9957c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* PRODUCT DETAIL MODAL */
+
+.catalog-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.65);
+    z-index: 999;
+    overflow-y: auto;
+    padding: 40px 15px;
+}
+
+.catalog-content {
+    background: #f7f5ef;
+    max-width: 1050px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 6px;
+}
+
+.catalog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.close-catalog {
+    border: none;
+    background: none;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.catalog-item {
+    background: white;
+    padding-bottom: 20px;
+}
+
+.catalog-item img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.catalog-item h3 {
+    padding: 15px 15px 5px;
+}
+
+.catalog-item p {
+    padding: 5px 15px;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.catalog-item a {
+    display: inline-block;
+    margin: 12px 15px;
+    padding: 10px 18px;
+    background: #a9957c;
+    color: white;
+    text-decoration: none;
+}
+
+@media(max-width:768px) {
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-content {
+        padding: 20px;
+    }
+}
 </style>
 </head>
 
@@ -392,193 +626,62 @@ footer {
 
 <<section id="products">
 
+    <section id="products">
+
     <div class="section-title">
         <h2>Our Products</h2>
         <p>Discover Our Premium Terrazzo Collection</p>
     </div>
 
-    <!-- CATEGORY FILTER -->
-
-    <div class="category-filter">
-
-        <button class="category-btn active"
-        onclick="filterProducts('all',this)">
-            All Products
-        </button>
-
-        <button class="category-btn"
-        onclick="filterProducts('bathtub',this)">
-            Bathtub
-        </button>
-
-        <button class="category-btn"
-        onclick="filterProducts('bak-mandi',this)">
-            Bak Mandi
-        </button>
-
-        <button class="category-btn"
-        onclick="filterProducts('pot',this)">
-            Pot Teraso
-        </button>
-
-        <button class="category-btn"
-        onclick="filterProducts('air-mancur',this)">
-            Air Mancur
-        </button>
-
-        <button class="category-btn"
-        onclick="filterProducts('bangku',this)">
-            Bangku Taman
-        </button>
-
-        <button class="category-btn"
-        onclick="filterProducts('custom',this)">
-            Custom Terrazzo
-        </button>
-
-    </div>
-
-    <!-- PRODUCT LIST -->
-
     <div class="products">
 
-        <!-- BATHTUB 1 -->
-
-        <div class="product"
-        data-category="bathtub"
-        onclick="showProduct(0)">
-
-            <img src="./Terrazzo Spa Patio with Fountain and Greenery.png"
-            alt="Bathtub Minimalist Terrazzo">
-
+        <div class="product" onclick="openCatalog('bathtub')">
+            <img src="images/bathtub.jpg" alt="Bathtub Teraso">
             <div class="product-info">
-                <h3>Bathtub Minimalist</h3>
-                <p>Desain minimalis dengan bentuk geometris elegan.</p>
-                <span class="detail-link">View Details →</span>
+                <h3>Bathtub & Bak Mandi</h3>
+                <p>Koleksi bathtub premium untuk kamar mandi elegan.</p>
+                <button>View Collection →</button>
             </div>
-
         </div>
 
-        <!-- BATHTUB 2 -->
-
-        <div class="product"
-        data-category="bathtub"
-        onclick="showProduct(1)">
-
-            <img src="./Terrazzo Spa Patio with Fountain and Greenery.png"
-            alt="Bathtub Freestanding">
-
+        <div class="product" onclick="openCatalog('pot')">
+            <img src="images/pot.jpg" alt="Pot Teraso">
             <div class="product-info">
-                <h3>Bathtub Freestanding</h3>
-                <p>Desain berdiri bebas untuk kamar mandi premium.</p>
-                <span class="detail-link">View Details →</span>
+                <h3>Pot Teraso</h3>
+                <p>Pot dekoratif untuk interior dan landscape.</p>
+                <button>View Collection →</button>
             </div>
-
         </div>
 
-        <!-- BATHTUB 3 -->
-
-        <div class="product"
-        data-category="bathtub"
-        onclick="showProduct(2)">
-
-            <img src="./Terrazzo Spa Patio with Fountain and Greenery.png"
-            alt="Bathtub Square">
-
+        <div class="product" onclick="openCatalog('fountain')">
+            <img src="images/fountain.jpg" alt="Air Mancur Teraso">
             <div class="product-info">
-                <h3>Bathtub Square</h3>
-                <p>Desain tegas dengan bentuk kotak modern.</p>
-                <span class="detail-link">View Details →</span>
+                <h3>Air Mancur</h3>
+                <p>Elemen dekoratif untuk taman dan hunian.</p>
+                <button>View Collection →</button>
             </div>
-
         </div>
 
-        <!-- BAK MANDI -->
-
-        <div class="product"
-        data-category="bak-mandi"
-        onclick="showProduct(3)">
-
-            <img src="./Terrazzo Spa Patio with Fountain and Greenery.png"
-            alt="Bak Mandi Terrazzo">
-
-            <div class="product-info">
-                <h3>Bak Mandi Terrazzo</h3>
-                <p>Bak mandi teraso dengan desain elegan.</p>
-                <span class="detail-link">View Details →</span>
-            </div>
-
-        </div>
-
-        <!-- POT -->
-
-        <div class="product"
-        data-category="pot"
-        onclick="showProduct(4)">
-
-            <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=85"
-            alt="Pot Terrazzo">
-
-            <div class="product-info">
-                <h3>Pot Terrazzo</h3>
-                <p>Elemen dekoratif untuk interior dan landscape.</p>
-                <span class="detail-link">View Details →</span>
-            </div>
-
-        </div>
-
-        <!-- AIR MANCUR -->
-
-        <div class="product"
-        data-category="air-mancur"
-        onclick="showProduct(5)">
-
-            <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=85"
-            alt="Air Mancur Terrazzo">
-
-            <div class="product-info">
-                <h3>Air Mancur Terrazzo</h3>
-                <p>Elemen dekorasi taman yang menenangkan.</p>
-                <span class="detail-link">View Details →</span>
-            </div>
-
-        </div>
-
-        <!-- BANGKU -->
-
-        <div class="product"
-        data-category="bangku"
-        onclick="showProduct(6)">
-
-            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=85"
-            alt="Bangku Terrazzo">
-
+        <div class="product" onclick="openCatalog('bench')">
+            <img src="images/bench.jpg" alt="Bangku Taman Teraso">
             <div class="product-info">
                 <h3>Bangku Taman</h3>
-                <p>Perpaduan fungsi dan estetika outdoor.</p>
-                <span class="detail-link">View Details →</span>
+                <p>Bangku teraso yang kuat dan estetik.</p>
+                <button>View Collection →</button>
             </div>
-
         </div>
 
-        <!-- CUSTOM -->
-
-        <div class="product"
-        data-category="custom"
-        onclick="showProduct(7)">
-
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=85"
-            alt="Custom Terrazzo">
-
+        <div class="product" onclick="openCatalog('custom')">
+            <img src="images/custom.jpg" alt="Custom Teraso">
             <div class="product-info">
-                <h3>Custom Terrazzo</h3>
-                <p>Produk teraso sesuai kebutuhan proyek.</p>
-                <span class="detail-link">View Details →</span>
+                <h3>Custom Teraso</h3>
+                <p>Solusi produk teraso sesuai kebutuhan proyek.</p>
+                <button>View Collection →</button>
             </div>
-
         </div>
 
     </div>
+</section>
 
 </section>>
 
@@ -878,6 +981,233 @@ document.getElementById("productModal")
     }
 
 });
+
+</script>
+    <!-- PRODUCT CATALOG MODAL -->
+
+<div class="catalog-modal" id="catalogModal">
+
+    <div class="catalog-content">
+
+        <div class="catalog-header">
+            <div>
+                <h2 id="catalogTitle">Product Collection</h2>
+                <p id="catalogSubtitle">
+                    Discover Our Collection
+                </p>
+            </div>
+
+            <button class="close-catalog"
+                onclick="closeCatalog()">×</button>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid"></div>
+
+    </div>
+</div>
+
+<script>
+
+const catalogData = {
+
+    bathtub: {
+        title: "Bathtub & Bak Mandi",
+        subtitle: "Premium Terrazzo Bathtub Collection",
+
+        items: [
+            {
+                name: "Bathtub Minimalis",
+                image: "images/bathtub.jpg",
+                size: "150 x 75 x 60 cm",
+                description: "Bathtub minimalis dengan desain modern dan finishing teraso elegan."
+            },
+            {
+                name: "Bathtub Freestanding",
+                image: "images/bathtub.jpg",
+                size: "170 x 80 x 60 cm",
+                description: "Model bathtub berdiri bebas untuk kamar mandi premium."
+            },
+            {
+                name: "Bathtub Square",
+                image: "images/bathtub.jpg",
+                size: "160 x 80 x 60 cm",
+                description: "Desain geometris dengan tampilan tegas dan modern."
+            }
+        ]
+    },
+
+    pot: {
+        title: "Pot Teraso",
+        subtitle: "Premium Terrazzo Planter Collection",
+
+        items: [
+            {
+                name: "Pot Teraso Bulat",
+                image: "images/pot.jpg",
+                size: "Diameter 40 x Tinggi 50 cm",
+                description: "Pot berbentuk bulat untuk dekorasi interior dan eksterior."
+            },
+            {
+                name: "Pot Teraso Tinggi",
+                image: "images/pot.jpg",
+                size: "Diameter 35 x Tinggi 70 cm",
+                description: "Pot tinggi dengan tampilan minimalis dan elegan."
+            },
+            {
+                name: "Pot Teraso Minimalis",
+                image: "images/pot.jpg",
+                size: "40 x 40 x 45 cm",
+                description: "Pot geometris untuk mempercantik hunian dan area komersial."
+            }
+        ]
+    },
+
+    fountain: {
+        title: "Air Mancur Teraso",
+        subtitle: "Decorative Water Fountain Collection",
+
+        items: [
+            {
+                name: "Air Mancur Mangkok Susun",
+                image: "images/fountain.jpg",
+                size: "Diameter 80 x Tinggi 120 cm",
+                description: "Air mancur bertingkat dengan desain klasik dan elegan. Termasuk mesin air."
+            },
+            {
+                name: "Air Mancur Minimalis",
+                image: "images/fountain.jpg",
+                size: "Diameter 60 x Tinggi 90 cm",
+                description: "Air mancur minimalis untuk taman dan halaman rumah."
+            },
+            {
+                name: "Air Mancur Dekoratif",
+                image: "images/fountain.jpg",
+                size: "Diameter 100 x Tinggi 150 cm",
+                description: "Desain dekoratif sebagai focal point landscape."
+            }
+        ]
+    },
+
+    bench: {
+        title: "Bangku Taman Teraso",
+        subtitle: "Outdoor Furniture Collection",
+
+        items: [
+            {
+                name: "Bangku Taman Minimalis",
+                image: "images/bench.jpg",
+                size: "120 x 40 x 45 cm",
+                description: "Bangku taman minimalis dengan karakter material teraso."
+            },
+            {
+                name: "Bangku Taman Panjang",
+                image: "images/bench.jpg",
+                size: "150 x 45 x 45 cm",
+                description: "Bangku panjang untuk area taman dan ruang publik."
+            },
+            {
+                name: "Bangku Custom",
+                image: "images/bench.jpg",
+                size: "Sesuai permintaan",
+                description: "Bangku teraso yang dapat disesuaikan dengan kebutuhan proyek."
+            }
+        ]
+    },
+
+    custom: {
+        title: "Custom Terrazzo",
+        subtitle: "Made for Your Design & Project",
+
+        items: [
+            {
+                name: "Custom Wash Basin",
+                image: "images/custom.jpg",
+                size: "Sesuai desain",
+                description: "Wastafel teraso dengan bentuk dan ukuran sesuai kebutuhan."
+            },
+            {
+                name: "Custom Furniture",
+                image: "images/custom.jpg",
+                size: "Sesuai desain",
+                description: "Furniture teraso untuk kebutuhan hunian dan komersial."
+            },
+            {
+                name: "Custom Project",
+                image: "images/custom.jpg",
+                size: "Sesuai proyek",
+                description: "Produksi berbagai kebutuhan teraso berdasarkan spesifikasi proyek."
+            }
+        ]
+    }
+
+};
+
+function openCatalog(category) {
+
+    const data = catalogData[category];
+
+    document.getElementById("catalogTitle").innerText =
+        data.title;
+
+    document.getElementById("catalogSubtitle").innerText =
+        data.subtitle;
+
+    const grid = document.getElementById("catalogGrid");
+
+    grid.innerHTML = "";
+
+    data.items.forEach(item => {
+
+        grid.innerHTML += `
+
+            <div class="catalog-item">
+
+                <img src="${item.image}" alt="${item.name}">
+
+                <h3>${item.name}</h3>
+
+                <p><strong>Ukuran:</strong> ${item.size}</p>
+
+                <p>${item.description}</p>
+
+                <a href="https://wa.me/62XXXXXXXXXX?text=${encodeURIComponent(
+                    'Halo TERAZORA, saya tertarik dengan produk ' +
+                    item.name + '. Mohon informasi lebih lanjut.'
+                )}" target="_blank">
+
+                    Konsultasi Produk →
+
+                </a>
+
+            </div>
+
+        `;
+
+    });
+
+    document.getElementById("catalogModal").style.display = "block";
+
+    document.body.style.overflow = "hidden";
+
+}
+
+function closeCatalog() {
+
+    document.getElementById("catalogModal").style.display = "none";
+
+    document.body.style.overflow = "auto";
+
+}
+
+window.onclick = function(event) {
+
+    const modal = document.getElementById("catalogModal");
+
+    if (event.target === modal) {
+        closeCatalog();
+    }
+
+};
 
 </script>
 
